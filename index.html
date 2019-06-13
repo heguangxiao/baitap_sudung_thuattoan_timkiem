@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="phoneNumber" placeholder="Phone Number"/>
+<input type="button" id="inputPhoneNumber" value="Input" onclick="inputPhoneNumber()"/>
+<div id="showMessage"></div>
+
+<script>
+    let arrPhoneNumbers = [];
+    let showDiv = document.getElementById('showMessage');
+    let phoneNumber = document.getElementById('phoneNumber');
+    let messDiv = '';
+
+    function check(num) {
+        regexp = /^[_0]{1}[_86,96-98,32-39]{1}[_0-9]{7}$/;
+        if (regexp.test(num)) {
+            return 'VietTel';
+        }
+        return 'Nooooooo';
+    }
+
+    function inputPhoneNumber() {
+        arrPhoneNumbers.push(phoneNumber.value);
+        messDiv += arrPhoneNumbers[arrPhoneNumbers.length-1] + '-' +check(arrPhoneNumbers[arrPhoneNumbers.length-1])+ '<br/>';
+        showDiv.innerHTML = messDiv;
+    }
+
+</script>
+
+</body>
+</html>
